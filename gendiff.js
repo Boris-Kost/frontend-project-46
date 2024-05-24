@@ -1,18 +1,14 @@
 #!/usr/bin/env node
 
 const { program } = require('commander');
-const fs = require('fs');
-const path = require('path');
+const parseFile = require('./fileParser');
 
-// Функция для чтения файлов и их сравнения
-const compareFiles = (filepath1, filepath2, format) => {
-  const fullPath1 = path.resolve(filepath1);
-  const fullPath2 = path.resolve(filepath2);
-  const data1 = fs.readFileSync(fullPath1, 'utf-8');
-  const data2 = fs.readFileSync(fullPath2, 'utf-8');
+const compareFiles = (filepath1, filepath2) => {
+  const data1 = parseFile(filepath1);
+  const data2 = parseFile(filepath2);
 
-  // Здесь может быть логика для сравнения данных
-  if (data1 === data2) {
+  // Логика для сравнения данных
+  if (JSON.stringify(data1) === JSON.stringify(data2)) {
     return 'Files are identical';
   }
   return 'Files are different';
@@ -21,11 +17,12 @@ const compareFiles = (filepath1, filepath2, format) => {
 program
   .version('1.0.0')
   .description('Compares two configuration files and shows a difference.')
-  .arguments('<filepath1> <filepath2>') // Указываем аргументы командной строки
-  .option('-f, --format [type]', 'output format') // Добавляем опцию для формата вывода
+  .arguments('<filepath1> <filepath2>')
+  .option('-f, --format [type]', 'output format')
   .action((filepath1, filepath2, options) => {
     const format = options.format || 'default';
-    const result = compareFiles(filepath1, filepath2, format);
+    const result = compareFiles(filepath1, filepath2);
+    console.log(`Format: ${format}`);
     console.log(result);
   })
   .helpOption('-h, --help', 'output usage information')
