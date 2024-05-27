@@ -2,6 +2,9 @@
 install:
 	npm install
 
+start:
+	npm start
+
 # Установка линтера Airbnb
 # lint-setup:
 # npm init @eslint/config
@@ -29,16 +32,16 @@ reinstall:
 
 # Запуск утилиты gendiff с передачей путей до двух файлов
 gendiff:
-	node gendiff.js file1.json file2.json
+	node index.js file1.json file2.json
 
 # Запуск утилиты gendiff с передачей путей до двух файлов и форматом вывода json
 gendiff-json:
-	node gendiff.js -f json file1.json file2.json
+	node index.js -f json file1.json file2.json
 
 # Запуск утилиты gendiff с передачей путей до двух файлов и форматом вывода plain text
 gendiff-plain:
-	node gendiff.js -f plain file1.json file2.json
+	node index.js -f plain file1.json file2.json
 
 # Запуск утилиты gendiff с вызовом help
 gendiff-help:
-	./gendiff.js -h
+	node index.js -h

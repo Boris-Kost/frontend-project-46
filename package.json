@@ -2,9 +2,9 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Boris-Kost/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Boris-Kost/frontend-project-46/actions)",
-  "main": "gendiff.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node gendiff.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,7 +14,7 @@
     "lodash": "^4.17.21"
   },
   "bin": {
-    "gendiff": "./gendiff.js"
+    "gendiff": "./index.js"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
