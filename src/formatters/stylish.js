@@ -29,11 +29,11 @@ const stylish = (tree) => {
         return `${indent(depth)}- ${key}: ${stringify(value, depth)}`;
       case 'unchanged':
         return `${indent(depth)}  ${key}: ${stringify(value, depth)}`;
-      case 'changed':
-        return [
-          `${indent(depth)}- ${key}: ${stringify(oldValue, depth)}`,
-          `${indent(depth)}+ ${key}: ${stringify(newValue, depth)}`,
-        ].join('\n');
+      case 'changed': {
+        const line1 = `${indent(depth)}- ${key}: ${stringify(oldValue, depth)}`;
+        const line2 = `${indent(depth)}+ ${key}: ${stringify(newValue, depth)}`;
+        return `${line1}\n${line2}`;
+      }
       default:
         throw new Error(`Unknown type: ${type}`);
     }
