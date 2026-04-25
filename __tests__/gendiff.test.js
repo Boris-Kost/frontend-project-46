@@ -23,3 +23,8 @@ test('gendiff nested stylish yml', () => {
 test('gendiff plain', () => {
   expect(genDiff(getFixturePath('file1_nested.json'), getFixturePath('file2_nested.json'), 'plain')).toBe(expectedPlain);
 });
+
+test('gendiff json format', () => {
+  const result = genDiff(getFixturePath('file1_nested.json'), getFixturePath('file2_nested.json'), 'json');
+  expect(() => JSON.parse(result)).not.toThrow();
+});
