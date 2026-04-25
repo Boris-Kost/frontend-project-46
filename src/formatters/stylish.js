@@ -16,7 +16,14 @@ const stringify = (data, depth) => {
 
 const stylish = (tree) => {
   const iter = (node, depth) => {
-    const { key, type, value, oldValue, newValue, children } = node;
+    const {
+      key,
+      type,
+      value,
+      oldValue,
+      newValue,
+      children,
+    } = node;
 
     switch (type) {
       case 'nested':
