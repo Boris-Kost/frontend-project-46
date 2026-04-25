@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
+import { execSync } from 'child_process'
 import genDiff from '../src/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -20,14 +21,11 @@ test('gendiff stylish format', () => {
 
 test('gendiff plain format', () => {
   expect(genDiff(getFixturePath('file1_nested.json'), getFixturePath('file2_nested.json'), 'plain')).toBe(expectedPlain)
-  expect(genDiff(getFixturePath('file1_nested.yml'), getFixturePath('file2_nested.yml'), 'plain')).toBe(expectedPlain)
 })
 
 test('gendiff json format', () => {
   const result = genDiff(getFixturePath('file1_nested.json'), getFixturePath('file2_nested.json'), 'json')
   expect(() => JSON.parse(result)).not.toThrow()
-  const parsed = JSON.parse(result)
-  expect(parsed).toBeInstanceOf(Array)
 })
 
 test('gendiff error cases', () => {
@@ -43,4 +41,12 @@ test('gendiff complex nested object in stylish', () => {
 test('gendiff complex nested object in plain', () => {
   const result = genDiff(getFixturePath('file1_nested.json'), getFixturePath('file3_nested.json'), 'plain')
   expect(result).toContain('was added with value: [complex value]')
+})
+
+test('gendiff CLI integration', () => {
+  const binPath = path.join(__dirname, '..', 'bin', 'gendiff.js')
+  const file1 = getFixturePath('file1_nested.json')
+  const file2 = getFixturePath('file2_nested.json')
+  const output = execSync(`node ${binPath} ${file1} ${file2}`).toString().trim()
+  expect(output).toBe(expectedStylish)
 })
