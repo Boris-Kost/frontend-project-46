@@ -7,9 +7,11 @@ const stringify = (data, depth) => {
     return String(data)
   }
 
-  const lines = Object.entries(data).map(
-    ([key, value]) => `${indent(depth + 1)}  ${key}: ${stringify(value, depth + 1)}`,
-  )
+  const keys = _.sortBy(Object.keys(data))
+  const lines = keys.map((key) => {
+    const value = data[key]
+    return `${indent(depth + 1)}  ${key}: ${stringify(value, depth + 1)}`
+  })
 
   return `{\n${lines.join('\n')}\n${indent(depth)}  }`
 }
@@ -28,7 +30,7 @@ const stylish = (tree) => {
     switch (type) {
       case 'nested':
         return `${indent(depth)}  ${key}: {\n${children
-          .map(child => iter(child, depth + 1))
+          .map((child) => iter(child, depth + 1))
           .join('\n')}\n${indent(depth)}  }`
       case 'added':
         return `${indent(depth)}+ ${key}: ${stringify(value, depth)}`
@@ -46,7 +48,7 @@ const stylish = (tree) => {
     }
   }
 
-  return `{\n${tree.map(node => iter(node, 1)).join('\n')}\n}`
+  return `{\n${tree.map((node) => iter(node, 1)).join('\n')}\n}`
 }
 
 export default stylish
