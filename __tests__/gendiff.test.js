@@ -28,13 +28,13 @@ test('parsers unit tests', () => {
   const yamlData = 'key: value'
   expect(parse(yamlData, 'yml')).toEqual({ key: 'value' })
   expect(parse(yamlData, 'yaml')).toEqual({ key: 'value' })
-  expect(() => parse(data, 'invalid')).toThrow("Unknown format: 'invalid'!")
+  expect(() => parse(data, 'invalid')).toThrow('Unknown format: \'invalid\'!')
 })
 
 test('formatters unit tests', () => {
   const tree = [{ key: 'follow', type: 'added', value: false }]
   expect(format(tree, 'stylish')).toContain('+ follow: false')
-  expect(format(tree, 'plain')).toContain("Property 'follow' was added with value: false")
+  expect(format(tree, 'plain')).toContain('Property \'follow\' was added with value: false')
   expect(format(tree, 'json')).toContain('"type":"added"')
   expect(() => format(tree, 'invalid')).toThrow('Unknown format: invalid')
 })
@@ -56,7 +56,7 @@ test('plain format complex values', () => {
   ]
   const result = format(tree, 'plain')
   expect(result).toContain('with value: [complex value]')
-  expect(result).toContain("updated. From 'old' to [complex value]")
+  expect(result).toContain('updated. From \'old\' to [complex value]')
 })
 
 test('gendiff nested stylish yaml fixtures', () => {
