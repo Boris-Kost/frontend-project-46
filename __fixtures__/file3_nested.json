@@ -1,0 +1,7 @@
+{
+  "deep": {
+    "key": {
+      "innerKey": "value"
+    }
+  }
+}
