@@ -56,7 +56,7 @@ test('plain format complex values', () => {
   ]
   const result = format(tree, 'plain')
   expect(result).toContain('with value: [complex value]')
-  expect(result).toContain('updated. From \'old\' to [complex value]')
+  expect(result).toContain("updated. From 'old' to [complex value]")
 })
 
 test('gendiff nested stylish yaml fixtures', () => {
