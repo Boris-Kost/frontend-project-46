@@ -27,7 +27,7 @@ jobs:
       - run: make lint
       - run: npm test -- --coverage --coverageReporters=lcov
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@02003573376dbb6028540509ac4734ccc60c871d
+        uses: SonarSource/sonarcloud-github-action@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

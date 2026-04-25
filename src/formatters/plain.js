@@ -31,7 +31,7 @@ const plain = (tree) => {
             throw new Error(`Unknown type: ${item.type}`)
         }
       })
-      .filter((line) => line !== null)
+      .filter(line => line !== null)
 
     return lines.join('\n')
   }
