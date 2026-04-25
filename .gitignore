@@ -1,2 +1,8 @@
 node_modules/
-.cast
+.npmrc
+coverage/
+.DS_Store
+.env
+.idea/
+.vscode/
+*.log
