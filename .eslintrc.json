@@ -14,7 +14,8 @@
     "no-console": "off",
     "import/extensions": "off",
     "semi": ["error", "never"],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": "off",
+    "no-underscore-dangle": ["error", { "allow": ["__filename", "__dirname"] }],
     "object-curly-newline": "off"
   }
 }
