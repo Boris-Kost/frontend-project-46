@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const formatValue = value => {
+const formatValue = (value) => {
   if (_.isObject(value)) {
     return '[complex value]'
   }
@@ -13,7 +13,7 @@ const formatValue = value => {
 const plain = (tree) => {
   const iter = (node, path) => {
     const lines = node
-      .map(item => {
+      .map((item) => {
         const fullPath = path === '' ? item.key : `${path}.${item.key}`
 
         switch (item.type) {
@@ -31,7 +31,7 @@ const plain = (tree) => {
             throw new Error(`Unknown type: ${item.type}`)
         }
       })
-      .filter(line => line !== null)
+      .filter((line) => line !== null)
 
     return lines.join('\n')
   }

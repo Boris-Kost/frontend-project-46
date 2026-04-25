@@ -28,7 +28,7 @@ const stylish = (tree) => {
     switch (type) {
       case 'nested':
         return `${indent(depth)}  ${key}: {\n${children
-          .map(child => iter(child, depth + 1))
+          .map((child) => iter(child, depth + 1))
           .join('\n')}\n${indent(depth)}  }`
       case 'added':
         return `${indent(depth)}+ ${key}: ${stringify(value, depth)}`
@@ -46,7 +46,7 @@ const stylish = (tree) => {
     }
   }
 
-  return `{\n${tree.map(node => iter(node, 1)).join('\n')}\n}`
+  return `{\n${tree.map((node) => iter(node, 1)).join('\n')}\n}`
 }
 
 export default stylish
