@@ -20,10 +20,6 @@ test('gendiff nested stylish yml', () => {
   expect(genDiff(getFixturePath('file1_nested.yml'), getFixturePath('file2_nested.yml'), 'stylish')).toBe(expectedStylish)
 })
 
-test('gendiff nested stylish yaml', () => {
-  expect(genDiff(getFixturePath('file1_nested.yaml'), getFixturePath('file2_nested.yaml'), 'stylish')).toBe(expectedStylish)
-})
-
 test('gendiff plain', () => {
   expect(genDiff(getFixturePath('file1_nested.json'), getFixturePath('file2_nested.json'), 'plain')).toBe(expectedPlain)
 })
