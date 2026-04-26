@@ -28,19 +28,19 @@ gendiff [options] <filepath1> <filepath2>
 ## Demos
 
 ### Step 5: Flat JSON comparison
-[![asciicast](https://asciinema.org/a/5kRlMPDIrL2Ph0aq9kCIb3P45.svg)](https://asciinema.org/a/5kRlMPDIrL2Ph0aq9kCIb3P45)
+[![asciicast](https://asciinema.org/a/L6WsmljuNaWyxcw1.svg)](https://asciinema.org/a/L6WsmljuNaWyxcw1)
 
 ### Step 6: YAML support
-[Asciinema demo (YAML)](https://asciinema.org) <!-- Replace with your link -->
+[![asciicast](https://asciinema.org/a/jI6dtaUxUoyySvl0.svg)](https://asciinema.org/a/jI6dtaUxUoyySvl0)
 
 ### Step 7: Recursive comparison (Stylish format)
-[Asciinema demo (Recursive)](https://asciinema.org) <!-- Replace with your link -->
+[![asciicast](https://asciinema.org/a/7FVqsvmdHYHXfBAC.svg)](https://asciinema.org/a/7FVqsvmdHYHXfBAC)
 
 ### Step 8: Plain format
-[Asciinema demo (Plain)](https://asciinema.org) <!-- Replace with your link -->
+[![asciicast](https://asciinema.org/a/EOVaS3ZfzCkuZSik.svg)](https://asciinema.org/a/EOVaS3ZfzCkuZSik)
 
 ### Step 9: JSON format
-[Asciinema demo (JSON)](https://asciinema.org) <!-- Replace with your link -->
+[![asciicast](https://asciinema.org/a/ci62GHFo76r6LaO7.svg)](https://asciinema.org/a/ci62GHFo76r6LaO7)
 
 ## Features
 - Supports JSON, YAML (.yml, .yaml)
